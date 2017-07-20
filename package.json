@@ -4,7 +4,7 @@
   "description": "Get links of the publically shared medias on Instagram",
   "main": "cli.js",
   "bin": {
-    "apod": "cli.js"
+    "igl": "cli.js"
   },
   "engines": {
     "node": ">=4"
