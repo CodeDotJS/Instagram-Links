@@ -63,17 +63,23 @@ const showError = () => {
 	process.exit(1);
 };
 
+const cdn = 'https://scontent-lga3-1.cdninstagram.com/';
+
+const replaceCDN = link => {
+	return `${cdn}${link.split('/vp/')[1].replace('/s320x320/', '/s1080x1080/')}`;
+};
+
 if (arg === '-p' || arg === '--profile') {
 	checkConnection();
 	const url = `https://www.instagram.com/${inf}/?__a=1`;
 
 	got(url, {json: true}).then(res => {
 		logUpdate(`
-${pre} Small resolution  : ${res.body.user.profile_pic_url}
+${pre} Small resolution  : ${res.body.graphql.user.profile_pic_url}
 
-${pre} Medium resolution : ${res.body.user.profile_pic_url_hd}
+${pre} Medium resolution : ${res.body.graphql.user.profile_pic_url_hd}
 
-${pre} Full resolution   : ${res.body.user.profile_pic_url_hd.replace('/s320x320', '')}
+${pre} Full resolution   : ${replaceCDN(res.body.graphql.user.profile_pic_url_hd)}
 		`);
 		spinner.stop();
 	}).catch(err => {
