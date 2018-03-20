@@ -35,7 +35,7 @@ test.cb('images', t => {
 });
 
 test.cb('vidoes', t => {
-	const cp = childProcess.spawn('./cli.js', ['-v', 'https://www.instagram.com/p/BMyWqmqDF_W/?taken-by=iama_rishi'], {stdio: 'inherit'});
+	const cp = childProcess.spawn('./cli.js', ['-v', 'https://www.instagram.com/p/BWvEj0fF5Tg/'], {stdio: 'inherit'});
 
 	cp.on('error', t.ifError);
 
