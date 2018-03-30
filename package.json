@@ -1,6 +1,6 @@
 {
   "name": "instagram-links",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Get links of the publically shared medias on Instagram",
   "main": "cli.js",
   "bin": {
